@@ -1,0 +1,46 @@
+<%- include("partials/header")-%>
+ 
+ <form class="my-form" action="/upload" method="post">
+    <h2> upload form</h2>
+
+    <div class="form-row">
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Select Branch</label>
+      <select class="form-control" name="branch" id="exampleFormControlSelect1">
+        <option value="cse">Computer Science</option>
+        <option value="civil">Civil</option>
+        <option value="mechanical">Mechanical</option>
+        <option value="electrical">Electrical</option>
+        <option value="ai">AI and ML</option>
+      </select>
+    </div>
+    </div>
+    <div class="form-row">
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Select Year</label>
+      <select class="form-control" name="year" id="exampleFormControlSelect2">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="inputEmail4">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Your Name">
+          </div>
+      <div class="form-group">
+        <label for="inputEmail4">Notes Link</label>
+        <input type="text" name="link" class="form-control" id="inputEmail4 no use" placeholder="URL">
+      </div>
+      <div class="form-group">
+        <label for="inputEmail4">Image Link</label>
+        <input type="text" name="img-link" class="form-control" id="inputEmail4 no use" placeholder="img-URL">
+      </div>
+    </div>
+    <button type="submit"   class="btn btn-primary" >Upload</button>
+  </form>
+<%- include("partials/footer")-%>

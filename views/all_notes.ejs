@@ -1,0 +1,24 @@
+
+<%- include("partials/header")-%>
+  <div class="content">
+      
+    
+    <div class="container1">
+      <h1 class="max-w-sm text-3xl font-bold ">Welcome <%= title %> Branch <%=year%> Year Notes</h1>
+   <% courses.forEach(function(item) { %>
+       <div class="card1">
+     <h2>Name: <%= item.name %></h2>
+     <p>Download notes for first-year engineering subjects.</p>
+     <div id="wrap"><a class="btn" href="https://<%=item.link%>" target="_blank" rel="noopener noreferrer">Download </a></div>
+         </div>
+   <% }); %>
+
+   <!-- Add more cards for other branches if needed -->
+   </div>
+ </div>
+
+
+
+
+<!-- sujects div  end -->
+<%- include("partials/footer")-%>
