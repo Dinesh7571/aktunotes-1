@@ -4,8 +4,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
+const path = require('path');
 const app = express();
+
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 require('dotenv').config();
@@ -62,20 +65,6 @@ app.get("/:branch", function(req, res){// use is to navigate for diffrent branch
 
 })
 
-
-
-// app.get("/civil", function(req, res){
-//   res.render("civil");
-// });
-// app.get("/cse", function(req, res){
-//   res.render("cse");
-// });
-// app.get("/mechanical", function(req, res){
-//   res.render("mechanical");
-// });
-// app.get("/ai", function(req, res){
-//   res.render("ai");
-// });
 app.get("/upload", function(req, res){
   res.render("upload");
 });
@@ -130,31 +119,9 @@ app.get("/:branch/:year", function(req, res){// use is to navigate for diffrent 
 
 
     });
-
-      // Course.find({
-      //   course:requestBranch,
-      //   year:requestYear
-      // }, function(err, courses){
-        
-      //   if (err) {
-      //     // Handle the error
-      //     console.error(err);
-      //     res.status(500).send('An error occurred');
-      //   } else {
-      //     // Return the results
-      //     res.render("all_notes", {
-      //       title: requestBranch,
-      //       year:requestYear,
-      //       courses:results
-      //     });
-      //   }
-
-      // });
    
       
     //working here
-
-
 
 app.get("/about", function(req, res){
   res.render("about", {about: aboutContent});
