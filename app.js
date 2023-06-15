@@ -35,6 +35,7 @@ const courseSchema = new mongoose.Schema({
   course: { type: String, required: true },
   year: { type: Number, required: true },
   name: { type: String, required: true },
+  type: { type: String, required: true },
   link: { type: String, required: true },
   imgLink: { type: String, required: true },
 });
@@ -46,6 +47,8 @@ const Course = mongoose.model('Course', courseSchema); //connecting the model wi
 
 // newCourse.save();
 
+var currentSubject="Computer Science"// initialising the universal subject variable
+
 app.get("/", function(req, res){
   res.render("index");
 });
@@ -56,10 +59,19 @@ app.get("/:branch", function(req, res){// use is to navigate for diffrent branch
   {
     res.render("upload");
   }
-  else
+  else if(requestBranch=='cse'||requestBranch=='civil'||requestBranch=='mechanical'||requestBranch=='ai')
   {
+     if(requestBranch=='cse')
+       currentSubject="Cmputer Science"
+    else if(requestBranch=='civil')
+       currentSubject="Civil"
+    else if(requestBranch=='ai')
+       currentSubject="AI/ML"
+    else if(requestBranch=='mechanical')
+       currentSubject="Mechanical"
     res.render("cse", {
       title: requestBranch,
+      heading:currentSubject,
     })
   }
  
@@ -72,14 +84,16 @@ app.get("/upload", function(req, res){
 app.post("/upload", function(req,res)
       { 
          var branch = String(req.body.branch);
+         var type = String(req.body.type);
          var year= Number(req.body.year);
          var name = String(req.body.name);
          var link = String(req.body.link);
-         var imglink = String(req.body.img-link);
+         var imglink = String(req.body.imglink);
          const newCourse = new Course({
           course:branch,
           year: year,
           name: name,
+          type:type,
           link: link,
           imgLink:imglink,
         });
@@ -101,9 +115,11 @@ app.get("/:branch/:year", function(req, res){// use is to navigate for diffrent 
     {
      res.render('error', { title: 'Error', message: 'Invalid Page Number' });
     }
+     
     Course.find({
       course:requestBranch,
-      year:requestYear
+      year:requestYear,
+      type:"notes",
     }).then((results) => {
       console.log(results);
      
