@@ -16,7 +16,7 @@ require('dotenv').config();
 
 
 /// mongo db connection 
-const dbUrl = 'mongodb+srv://aktunotesonline:Qazw$7565@cluster0.yhw6lag.mongodb.net/?retryWrites=true&w=majority';
+const dbUrl = process.env.DB_URL;
 
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,
