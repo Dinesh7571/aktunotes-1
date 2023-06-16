@@ -14,7 +14,9 @@ body {
   padding: 0;
   
 }
-
+.show {
+  display: block;
+}
 
 
 /* navbar */
@@ -25,11 +27,11 @@ background: #22313F;
 }
 
 
-.container1 {
+/* .container1 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-}
+} */
 .container1 h1{
   font-size: 30px;
 }
@@ -37,7 +39,7 @@ background: #22313F;
   color: #ffffff;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   animation: gradient 15s ease infinite;
-  background-size: 400% 400%;
+  background-size: 1000px 1000px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -94,12 +96,12 @@ a.btn.warn:active {color:#fff;box-shadow:inset 0px -50px 0px #30abd5;}
 
 
 @media screen and (min-width: 768px) {
-  .card1 {
+  /* .card1 {
     display: inline-block;
     width: calc(33.33% - 40px);
     margin-right: 20px;
     vertical-align: top;
-  }
+  } */
 
   .card {
     display: inline-block;
